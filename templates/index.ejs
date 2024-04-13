@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<%- include('./_partials/head') %>
+<body>
+
+<div class="container px-4 mt-4">
+    <h1 class="fs-1 fw-bold">TODONODE</h1>
+    <h2 class="fw-lighter">Gestion des notes</h2>
+
+    <div class="row">
+        <div class="col col-lg-4 col-sm-12">
+            <div class="wrapper rounded-4 bg-body-secondary mt-2 px-4 py-3">
+                <h3 class="mb-2">Gérer vos notes</h3>
+                <form method="post" action="/add-notes" id="form-notes">
+                    <input type="hidden" name="id" id="id" value=""/>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Titre</label>
+                        <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp">
+                        <div id="titleHelp" class="form-text">Ajouter un titre à votre note.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" name="description" id="description"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                </form>
+            </div>
+        </div>
+        <div class="col col-lg-8 col-sm-12">
+            <div class="wrapper mt-sm-4 mt-lg-2 px-lg-3 py-lg-3">
+                <h3 class="mb-2 mb-4">Consulter vos notes</h3>
+                <div class="container px-0">
+                    <div class="cards row g-4">
+                        <% if(notes.length == 0) { %> <span class="text-muted">Aucune note.</span> <% } %>
+                        <% for (i = 0; i < notes.length ; i++) { %>
+                        <div class="col col-lg-6 col-sm-12 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= notes[i].title %></h5>
+                                    <p class="card-description"><%= notes[i].description %></p>
+                                    <button type="button" data-id="<%= notes[i].id %>" class="btn btn-danger delete">
+                                        Supprimer
+                                    </button>
+                                    <a href="#" data-id="<%= notes[i].id %>" class="btn btn-warning update">Modifier</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./_partials/footer') %>
+</body>
+</html>
