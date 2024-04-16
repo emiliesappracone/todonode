@@ -11,7 +11,7 @@ With this app you can read, add, update and delete notes.
 ### Requirements
 
 - Node 18
-- Nodemon to reload node server when code is updated
+- Nodemon to reload node server when code is updated (`npm install -g nodemon` - https://www.npmjs.com/package/nodemon/v/0.2.2)
 
 ### Installation
 
@@ -27,8 +27,8 @@ With this app you can read, add, update and delete notes.
 
 4- Install dependecies :
 
-- npm install
+- `npm install`
 
 5- Run server :
 
-- nodemon app.js
+- `nodemon app.js`
