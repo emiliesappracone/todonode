@@ -1,6 +1,6 @@
 # TODONODE
 
-## Micro application in NodeJS
+## NodeJS Micro application
 
 With this app you can add, update and delete notes.
 
